@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background8"
+    android:orientation="vertical"
+    tools:context=".Addition">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#1F2C34">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/additionActivityToolbar"
+            android:backgroundTint="#1F2C34"
+            app:title="@string/app_name"
+            app:menu="@menu/instruction_menu"
+            app:titleTextColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+        </com.google.android.material.appbar.MaterialToolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/scoreView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/lexend"
+                    android:text="Score: "
+                    android:textColor="#FFF"
+                    android:textSize="35dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/hourGlassAnim"
+                    app:layout_constraintHorizontal_bias="0.098"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.367" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/hourGlassAnim"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/sandtimer">
+
+
+                </com.airbnb.lottie.LottieAnimationView>
+
+                <TextView
+                    android:id="@+id/timerTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="00 : 00"
+                    android:textColor="#FFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.951"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/hourGlassAnim"
+                    app:layout_constraintVertical_bias="0.0">
+
+                </TextView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="0dp"
+                android:backgroundTint="#E1F5E3"
+                android:elevation="8dp"
+                android:outlineProvider="paddedBounds"
+                app:cardCornerRadius="8dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/quesNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginLeft="4dp"
+                            android:fontFamily="@font/lexend"
+                            android:text="Q1"
+                            android:textColor="#F3393838"
+                            android:textSize="40dp"
+                            android:textStyle="bold"
+                            app:layout_constraintBaseline_toBaselineOf="@+id/quesText"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <TextView
+                            android:id="@+id/quesText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lexend"
+                            android:text="Press Start"
+                            android:textColor="#000000"
+                            android:textSize="35dp"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/quesNumber"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                        android:id="@+id/textInputLayout"
+                        android:layout_width="335dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:textColorHint="#000000"
+
+                        app:boxStrokeErrorColor="@color/red"
+                        app:boxStrokeColor="@color/green"
+                        app:boxStrokeWidth="2dp"
+                        app:hintTextColor="@color/black">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/ansEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:fontFamily="@font/lexend"
+                            android:hint="Answer"
+                            android:maxLength="8"
+                            android:maxLines="1"
+                            android:textColor="#000000"
+                            android:textSize="25sp"
+
+                            android:textStyle="bold"
+                            android:visibility="visible" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btnStart"
+                android:layout_width="wrap_content"
+
+                android:layout_height="55dp"
+                android:layout_gravity="right"
+                android:layout_marginStart="180dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginBottom="0dp"
+                android:onClick="startThis"
+                android:text="   Start   "
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                app:backgroundTint="#E1F5E3"
+                app:cornerRadius="20dp"
+                app:strokeColor="#000000"
+                app:strokeWidth="0dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#2AFFFFFF"
+                android:elevation="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardUseCompatPadding="true"
+                android:layout_gravity="center_horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:columnCount="3"
+                        android:rowCount="4"
+                        android:useDefaultMargins="false">
+
+                        <Button
+                            android:id="@+id/btn1"
+                            style="@style/ButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_row="0"
+                            android:layout_column="0"
+
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginRight="6dp"
+                            android:onClick="doThis"
+                            android:text="1" />
+
+                        <Button
+                            android:id="@+id/btn2"
+                            style="@style/ButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="6dp"
+                            android:onClick="doThis"
+                            android:text="2" />
+
+                        <Button
+                            android:id="@+id/btn3"
+                            style="@style/ButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="doThis"
+                            android:layout_marginRight="12dp"
+                            android:text="3" />
+
+                        <Button
+                            android:id="@+id/btn4"
+                            style="@style/ButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:onClick="doThis"
+                            android:text="4" />
+
+                        <Button
+                            android:id="@+id/btn5"
+                            style="@style/ButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="doThis"
+                            android:text="5" />
+
+                        <Button
+                            android:id="@+id/btn6"
+                            style="@style/ButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:onClick="doThis"
+                            android:text="6" />
+
+                        <Button
+                            android:id="@+id/btn7"
+                            style="@style/ButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:onClick="doThis"
+                            android:text="7" />
+
+                        <Button
+                            android:id="@+id/btn8"
+                            style="@style/ButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="doThis"
+                            android:text="8" />
+
+                        <Button
+                            android:id="@+id/btn9"
+                            style="@style/ButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="doThis"
+                            android:text="9" />
+
+                        <Button
+                            android:id="@+id/btnPass"
+                            style="@style/ButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:onClick="generateNextQuestion"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="6dp"
+                            android:text="Pass"
+                            android:textSize="15sp" />
+                        <Button
+                            android:id="@+id/btn10"
+                            style="@style/ButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="doThis"
+                            android:text="0" />
+                        <Button
+                            android:id="@+id/btn11"
+                            style="@style/ButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="dontThis"
+                            android:text=""
+                            app:icon="@drawable/backspacebutton"
+                            app:iconGravity="textStart"
+                            app:iconSize="35dp"
+                            app:iconTint="#000000" />
+                    </GridLayout>
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Math Mastery</string>
+    <string name="help">1. Press Start Button to start/restart\n\n2. Enter Answer to get next question\n\n3. Pass any question by Pass Button
+    </string>
+</resources>
